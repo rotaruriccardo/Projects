@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "database.h"
+
+int main(int argc, char** argv){
+
+    //CREATE    
+    Database* d = create_database();
+    Persona* p = create_persona("Giorgio","Pisellino","via Capocroce",20);
+    Persona* p2 = create_persona("Mario","Piselloni", "Via Piselli",35);
+    Persona* p3 = create_persona("Luca","Cazzotti","via DaiPalloni",100);
+    //print_persona(p);
+    //print_persona(p2);
+    insert(d,p);
+    insert(d,p2);
+    insert(d,p3);
+
+    //PRINT
+    // print_treeString(d->address);
+    // print_treeInt(d->age);
+    // print_treeString(d->name);
+    // print_treeString(d->surname);
+
+    Persona* persN = findByName(d, "Mauro");
+    print_persona(persN);
+    printf("\n");
+    Persona* persA = findByAddress(d,"via Capocroce");
+    print_persona(persA);
+    printf("\n");
+    Persona* persS = findBySurname(d,"Cazzotti");
+    print_persona(persS);
+    printf("\n");
+    Persona* persAge = findByAge(d,20);
+    print_persona(persAge);
+    printf("\n");
+    //FREE
+    free_database(d);
+    free_persona(p);
+    free_persona(p2);
+    free_persona(p3);
+    
+    return 0;
+
+}
