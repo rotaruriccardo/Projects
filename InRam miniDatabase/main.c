@@ -6,9 +6,9 @@ int main(int argc, char** argv){
 
     //CREATE    
     Database* d = create_database();
-    Persona* p = create_persona("Giorgio","Pisellino","via Capocroce",20);
-    Persona* p2 = create_persona("Mario","Piselloni", "Via Piselli",35);
-    Persona* p3 = create_persona("Luca","Cazzotti","via DaiPalloni",100);
+    Persona* p = create_persona("Giorgio","Malgioglio","via Capocroce",20);
+    Persona* p2 = create_persona("Mario","Merola", "Via Aprile",35);
+    Persona* p3 = create_persona("Luca","De Luca","via Mango",100);
     //print_persona(p);
     //print_persona(p2);
     insert(d,p);
@@ -21,13 +21,13 @@ int main(int argc, char** argv){
     // print_treeString(d->name);
     // print_treeString(d->surname);
 
-    Persona* persN = findByName(d, "Mauro");
+    Persona* persN = findByName(d, "Giorgio");
     print_persona(persN);
     printf("\n");
-    Persona* persA = findByAddress(d,"via Capocroce");
+    Persona* persA = findByAddress(d,"via Aprile");
     print_persona(persA);
     printf("\n");
-    Persona* persS = findBySurname(d,"Cazzotti");
+    Persona* persS = findBySurname(d,"De Luca");
     print_persona(persS);
     printf("\n");
     Persona* persAge = findByAge(d,20);
